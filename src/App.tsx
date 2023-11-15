@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import TopBar from "./components/TopBar";
 import { useEffect } from "react";
-import { getCharacters, getLocations } from "./redux/actions/actions";
+import { getCharacters } from "./redux/actions/actions";
 
 function App() {
   const dispatch = useDispatch();
@@ -14,6 +14,7 @@ function App() {
   return (
     <>
        <TopBar />
+       <button onClick={() => dispatch(getCharacters())}>Get Characters</button>
     </>
   );
 }
