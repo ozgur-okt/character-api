@@ -1,10 +1,10 @@
+import TopBar from "./components/TopBar";
+
 function App() {
   return (
-    <div>
-        <p>
-          Edit src/App.tsx and save to reload.
-        </p>
-    </div>
+    <>
+       <TopBar />
+    </>
   );
 }
 
