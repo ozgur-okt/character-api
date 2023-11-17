@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { Link, useParams } from 'react-router-dom';
 import CharacterCard from '../components/CharacterCard';
-import { fetchCharacters } from '../redux/characters/actions';
-import { RootState } from '../redux/store';
 import { Character } from '../types/characters';
 
 
 const Characters: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const [characters, setCharacters] = useState<Character[]>([]);
+  const [selectedStatus, setSelectedStatus] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchCharacters = async () => {
@@ -27,9 +25,17 @@ const Characters: React.FC = () => {
     fetchCharacters();
   }, [id]);
 
+  const filteredCharacters = selectedStatus
+    ? characters.filter(character => character.status === selectedStatus)
+    : characters;
+
   return (
     <div>
-      {characters.map((character) => (
+      <button onClick={() => setSelectedStatus('Alive')}>Alive</button>
+      <button onClick={() => setSelectedStatus('Dead')}>Dead</button>
+      <button onClick={() => setSelectedStatus('Unknown')}>Unknown</button>
+      <Link to="/favorites">Go to My Favorites</Link>
+      {filteredCharacters.map((character) => (
         <CharacterCard key={character.id} character={character} />
       ))}
     </div>
