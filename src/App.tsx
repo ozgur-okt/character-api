@@ -1,21 +1,30 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import TopBar from "./components/TopBar";
 import { useEffect } from "react";
-import { getCharacters } from "./redux/actions/actions";
+import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
+import { fetchLocations } from './redux/locations/actions';
+import Locations from "./pages/Locations";
+import Characters from "./pages/Characters";
+import CharacterDetails from "./pages/CharacterDetails";
 
 function App() {
-  const dispatch = useDispatch();
+  const dispatch: ThunkDispatch<any, any, AnyAction> = useDispatch();
+
   useEffect(() => {
-    //dispatch(getCharacters())
+    dispatch(fetchLocations());
   }, [dispatch]);
 
-
-  let characters = useSelector((state: any) => state.data.characters);
   return (
-    <>
-       <TopBar />
-       <button onClick={() => dispatch(getCharacters())}>Get Characters</button>
-    </>
+    <Router>
+      <TopBar />
+      <Routes>
+        <Route path="/" element={<Locations />} />
+        <Route path="/locations/:id" element={<Characters />} />
+        <Route path="/characters/:id" element={<CharacterDetails />} />
+      </Routes>
+    </Router>
   );
 }
 

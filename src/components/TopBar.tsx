@@ -1,12 +1,12 @@
 import logo from '../assets/logo.png'
 import backBtn from '../assets/back-button.svg'
-import '../styles/TopBar.scss'
+import styles from '../styles/TopBar.module.scss'
 
 function TopBar() {
   return (
-    <div className='topbar'>
-      <img className='back-btn' src={backBtn} alt="back" height={80} />
-      <img className='logo' src={logo} alt="logo" height={80} />
+    <div className={styles.topbar}>
+      <img className={styles.backBtn} src={backBtn} alt="back" height={80} />
+      <img src={logo} alt="logo" height={80} />
     </div>
   )
 }
