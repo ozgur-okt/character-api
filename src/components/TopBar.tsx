@@ -1,11 +1,25 @@
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import logo from '../assets/logo.png'
 import backBtn from '../assets/back-button.svg'
 import styles from '../styles/TopBar.module.scss'
 
 function TopBar() {
+  const navigate = useNavigate()
+
+  const handleBackClick = () => {
+    navigate(-1)
+  }
+
   return (
     <div className={styles.topbar}>
-      <img className={styles.backBtn} src={backBtn} alt="back" height={80} />
+      <img 
+        className={styles.backBtn} 
+        src={backBtn} 
+        alt="back" 
+        height={80} 
+        onClick={handleBackClick} 
+      />
       <img src={logo} alt="logo" height={80} />
     </div>
   )

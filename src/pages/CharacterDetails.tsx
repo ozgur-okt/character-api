@@ -1,21 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { Character } from '../types/characters';
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import { Character } from '../types/characters'
 
 
 const CharacterDetails: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
-  const [character, setCharacter] = useState<Character | null>(null);
+  const { id } = useParams<{ id: string }>()
+  const [character, setCharacter] = useState<Character | null>(null)
 
   useEffect(() => {
     const fetchCharacter = async () => {
-      const response = await fetch(`https://rickandmortyapi.com/api/character/${id}`);
-      const data = await response.json();
-      setCharacter(data);
-    };
+      const response = await fetch(`https://rickandmortyapi.com/api/character/${id}`)
+      const data = await response.json()
+      setCharacter(data)
+    }
 
-    fetchCharacter();
-  }, [id]);
+    fetchCharacter()
+  }, [id])
 
   return (
     <div>
@@ -31,7 +31,7 @@ const CharacterDetails: React.FC = () => {
         </>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default CharacterDetails;
+export default CharacterDetails

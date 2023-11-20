@@ -1,13 +1,13 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { RootState } from '../redux/store';
+import React from 'react'
+import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { RootState } from '../redux/store'
 
 import styles from '../styles/Locations.module.scss'
-import { Location } from '../types/locations';
+import { Location } from '../types/locations'
 
 const Locations: React.FC = () => {
-  const locations = useSelector((state: RootState) => state.locations.locations);
+  const locations = useSelector((state: RootState) => state.locations.locations)
 
   return (
     <div className={styles.container}>
@@ -20,7 +20,7 @@ const Locations: React.FC = () => {
         </Link>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default Locations;
+export default Locations

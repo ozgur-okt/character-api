@@ -1,33 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import CharacterCard from '../components/CharacterCard';
-import { Character } from '../types/characters';
-
+import React, { useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
+import CharacterCard from '../components/CharacterCard'
+import useCharacters from '../utils/useCharacters'
 
 const Characters: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
-  const [characters, setCharacters] = useState<Character[]>([]);
-  const [selectedStatus, setSelectedStatus] = useState<string | null>(null);
+  const { id: idParam } = useParams<{ id?: string }>()
+  const id = idParam || '1'
+  const [selectedStatus, setSelectedStatus] = useState<string | null>(null)
+  const [currentPage, setCurrentPage] = useState(1)
+  const charactersPerPage = 3
 
-  useEffect(() => {
-    const fetchCharacters = async () => {
-      const response = await fetch(`https://rickandmortyapi.com/api/location/${id}`);
-      const data = await response.json();
-      const characterResponses = await Promise.all(
-        data.residents.map((url: string) => fetch(url))
-      );
-      const characters = await Promise.all(
-        characterResponses.map((response: Response) => response.json())
-      );
-      setCharacters(characters);
-    };
+  const {currentCharacters, filteredCharacters} = useCharacters(id, selectedStatus, currentPage, charactersPerPage)
 
-    fetchCharacters();
-  }, [id]);
-
-  const filteredCharacters = selectedStatus
-    ? characters.filter(character => character.status === selectedStatus)
-    : characters;
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber)
 
   return (
     <div>
@@ -35,11 +20,18 @@ const Characters: React.FC = () => {
       <button onClick={() => setSelectedStatus('Dead')}>Dead</button>
       <button onClick={() => setSelectedStatus('Unknown')}>Unknown</button>
       <Link to="/favorites">Go to My Favorites</Link>
-      {filteredCharacters.map((character) => (
+      {currentCharacters.map((character) => (
         <CharacterCard key={character.id} character={character} />
       ))}
+      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+        {Array(Math.ceil(filteredCharacters.length / charactersPerPage)).fill(null).map((_, index) => (
+          <button key={index} onClick={() => paginate(index + 1)}>
+            {index + 1}
+          </button>
+        ))}
+      </div>
     </div>
-  );
-};
+  )
+}
 
-export default Characters;
+export default Characters
