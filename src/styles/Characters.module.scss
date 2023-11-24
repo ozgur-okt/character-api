@@ -1,0 +1,79 @@
+.container {
+  .header {
+    display: flex;
+    justify-content: space-between;
+
+    .status {
+      .buttons {
+        display: flex;
+        gap: 1rem;
+      }
+
+      button {
+        background-color: white;
+        border: 1px solid black;
+        height: 2rem;
+        border-radius: 5px;
+
+        .circle {
+          display: inline-block;
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          margin-right: 5px;
+        }
+      }
+
+      .alive .circle {
+        background-color: green;
+      }
+
+      .dead .circle {
+        background-color: red;
+      }
+
+      .unknown .circle {
+        background-color: gray;
+      }
+    }
+  }
+
+  .characters {
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15rem;
+    cursor: pointer;
+
+    .pageNumber {
+      background-color: white;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .currentPageNumber {
+      background-color: black;
+      color: white;
+      padding: 10px;
+      border-radius: 50%;
+    }
+
+    .next{
+      border: none;
+      background-color: white;
+    }
+    
+    .previous{
+      border: none;
+      background-color: white;
+    }
+  }
+}

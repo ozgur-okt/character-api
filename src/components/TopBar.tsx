@@ -1,4 +1,3 @@
-import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import logo from '../assets/logo.png'
 import backBtn from '../assets/back-button.svg'
@@ -17,7 +16,6 @@ function TopBar() {
         className={styles.backBtn} 
         src={backBtn} 
         alt="back" 
-        height={80} 
         onClick={handleBackClick} 
       />
       <img src={logo} alt="logo" height={80} />

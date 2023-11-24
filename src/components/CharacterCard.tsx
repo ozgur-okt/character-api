@@ -51,9 +51,10 @@ const CharacterCard: React.FC<CharacterProps> = ({ character }) => {
         width={40} 
          />
         <h2>{character.name}</h2>
-        <p>Status: {character.status}</p>
-        <p>Species: {character.species}</p>
-        <p>Gender: {character.gender}</p>
+        <div>
+        <span>{character.status}</span>
+        <span>{character.species}</span>
+        </div>
       </div>
     </Link>
   )

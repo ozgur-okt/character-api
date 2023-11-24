@@ -20,15 +20,16 @@ const CharacterDetails: React.FC = () => {
   return (
     <div>
       {character && (
-        <>
+        <div>
           <img src={character.image} alt={character.name} />
           <h2>{character.name}</h2>
-          <p>Status: {character.status}</p>
-          <p>Species: {character.species}</p>
+          <div>
+            <span>Status: {character.status}</span>
+            <span>Species: {character.species}</span>
+          </div>
           <p>Gender: {character.gender}</p>
-          <p>Origin: {character.origin.name}</p>
           <p>Current Location: {character.location.name}</p>
-        </>
+        </div>
       )}
     </div>
   )
