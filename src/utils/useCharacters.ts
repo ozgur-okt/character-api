@@ -1,9 +1,14 @@
 import { useState, useEffect } from 'react'
 import { Character } from '../types/characters'
+import { useDispatch, useSelector } from 'react-redux'
+import { setCharacters } from '../redux/characters/actions'
+import { RootState } from '../redux/store'
 
-const useCharacters = (id: string, selectedStatus: string | null, currentPage: number, charactersPerPage: number) => {
-  const [characters, setCharacters] = useState<Character[]>([])
-  const [filteredCharacters, setFilteredCharacters] = useState<Character[]>([])
+const useCharacters = (id: string, selectedStatus: string | null) => {
+  const dispatch = useDispatch()
+  const characters = useSelector((state: RootState) => state.characters.characters)
+  //const [characters, setCharacters] = useState<Character[]>([])
+  const [charactersByStatus, setCharactersByStatus] = useState<Character[]>([])
 
   useEffect(() => {
     const fetchCharacters = async () => {
@@ -15,24 +20,21 @@ const useCharacters = (id: string, selectedStatus: string | null, currentPage: n
       const characters = await Promise.all(
         characterResponses.map((response: Response) => response.json())
       )
-      setCharacters(characters)
+     
+      dispatch(setCharacters(characters))
     }
 
     fetchCharacters()
-  }, [id])
+  }, [dispatch, id])
 
   useEffect(() => {
     const filtered = selectedStatus
       ? characters.filter(character => character.status === selectedStatus)
       : characters
-    setFilteredCharacters(filtered)
+    setCharactersByStatus(filtered)
   }, [characters, selectedStatus])
 
-  const indexOfLastCharacter = currentPage * charactersPerPage
-  const indexOfFirstCharacter = indexOfLastCharacter - charactersPerPage
-  const currentCharacters = filteredCharacters.slice(indexOfFirstCharacter, indexOfLastCharacter)
-
-  return {currentCharacters, filteredCharacters}
+  return { charactersByStatus}
 }
 
 export default useCharacters

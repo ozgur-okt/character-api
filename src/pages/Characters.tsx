@@ -3,23 +3,18 @@ import { Link, useParams } from 'react-router-dom'
 import CharacterCard from '../components/CharacterCard'
 import useCharacters from '../utils/useCharacters'
 import styles from '../styles/Characters.module.scss'
-import rightArrow from '../assets/right-arrow.svg'
-import leftArrow from '../assets/left-arrow.svg'
+import Pagination from '../components/Pagination'
+import { useSelector } from 'react-redux'
+import { RootState } from '../redux/store'
 
 const Characters: React.FC = () => {
   const { id: idParam } = useParams<{ id?: string }>()
   const id = idParam || '1'
   const [selectedStatus, setSelectedStatus] = useState<string | null>(null)
-  const [currentPage, setCurrentPage] = useState(1)
   const charactersPerPage = 3
+  const currentCharacters = useSelector((state: RootState) => state.characters.currentCharacters)
+  const { charactersByStatus } = useCharacters(id, selectedStatus)
 
-  const { currentCharacters, filteredCharacters } = useCharacters(id, selectedStatus, currentPage, charactersPerPage)
-
-  const paginate = (pageNumber: number) => setCurrentPage(pageNumber)
-  const nextPage = () => setCurrentPage(prev => prev + 1);
-  const prevPage = () => setCurrentPage(prev => prev - 1);
-
-  const totalPages = Math.ceil(filteredCharacters.length / charactersPerPage);
 
   return (
     <div className={styles.container}>
@@ -38,25 +33,14 @@ const Characters: React.FC = () => {
             </button>
           </div>
         </div>
-        <Link to="/favorites">Go to My Favorites</Link>
+        <Link className={styles.favLink} to="/favorites">Go to My Favorites</Link>
       </div>
-      {/* <div className={styles.characters}>
+     <div className={styles.characters}>
         {currentCharacters.map((character) => (
           <CharacterCard key={character.id} character={character} />
         ))}
-      </div> */}
-
-      <div className={styles.pagination}>
-        <button className={styles.previous} onClick={prevPage} disabled={currentPage === 1}><img src={leftArrow}/></button>
-        {currentPage > 2 && <button className={styles.pageNumber} onClick={() => paginate(1)}>1</button>}
-        {currentPage > 3 && <span>...</span>}
-        {currentPage > 1 && <button className={styles.pageNumber} onClick={() => paginate(currentPage - 1)}>{currentPage - 1}</button>}
-        <button className={styles.currentPageNumber}>{currentPage}</button>
-        {currentPage < totalPages && <button className={styles.pageNumber} onClick={() => paginate(currentPage + 1)}>{currentPage + 1}</button>}
-        {currentPage < totalPages - 2 && <span>...</span>}
-        {currentPage < totalPages - 1 && <button className={styles.pageNumber} onClick={() => paginate(totalPages)}>{totalPages}</button>}
-        <button className={styles.next} onClick={nextPage} disabled={currentPage === totalPages}><img src={rightArrow}/></button>
-      </div>
+      </div> 
+      <Pagination items={charactersByStatus} paginationFor='characters' itemsPerPage={charactersPerPage} />
     </div>
   )
 }

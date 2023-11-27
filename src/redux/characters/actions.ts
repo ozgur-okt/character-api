@@ -1,9 +1,11 @@
-import { Dispatch } from "redux"
+//import { Dispatch } from "redux"
 import { Character, CharactersActionTypes, CharactersThunk, FetchCharactersFailureAction, FetchCharactersRequestAction, FetchCharactersSuccessAction } from "../../types/characters"
 
 export const FETCH_CHARACTERS_REQUEST = 'FETCH_CHARACTERS_REQUEST'
 export const FETCH_CHARACTERS_SUCCESS = 'FETCH_CHARACTERS_SUCCESS'
 export const FETCH_CHARACTERS_FAILURE = 'FETCH_CHARACTERS_FAILURE'
+export const SET_CURRENT_CHARACTERS = 'SET_CURRENT_CHARACTERS'
+export const SET_CHARACTERS = 'SET_CHARACTERS'
 
 
 export const fetchCharactersRequest = (): FetchCharactersRequestAction => ({
@@ -40,3 +42,13 @@ export const fetchCharacters = (id: string): CharactersThunk => async dispatch =
     dispatch({ type: FETCH_CHARACTERS_FAILURE, payload: error.toString() })
   }
 }
+
+export const setCharacters = (characters: Character[]): CharactersActionTypes => ({
+  type: SET_CHARACTERS,
+  payload: characters,
+})
+
+export const setCurrentCharacters = (characters: Character[]): CharactersActionTypes => ({
+  type: SET_CURRENT_CHARACTERS,
+  payload: characters,
+})

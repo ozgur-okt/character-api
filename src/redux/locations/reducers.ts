@@ -1,11 +1,12 @@
 
 import { LocationsActionTypes, LocationsState } from "../../types/locations"
-import { FETCH_LOCATIONS_FAILURE, FETCH_LOCATIONS_REQUEST, FETCH_LOCATIONS_SUCCESS } from "./actions"
+import { FETCH_LOCATIONS_FAILURE, FETCH_LOCATIONS_REQUEST, FETCH_LOCATIONS_SUCCESS, SET_CURRENT_LOCATIONS } from "./actions"
 
 
 const initialState: LocationsState = {
     loading: false,
     locations: [],
+    currentLocations: [],
     error: '',
   }
   
@@ -32,6 +33,11 @@ const initialState: LocationsState = {
           loading: false,
           locations: [],
           error: action.payload,
+        }
+      case SET_CURRENT_LOCATIONS:
+        return {
+          ...state,
+          currentLocations: action.payload,
         }
       default:
         return state

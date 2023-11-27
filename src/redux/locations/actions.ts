@@ -4,6 +4,7 @@ import { FetchLocationsFailureAction, FetchLocationsRequestAction, FetchLocation
 export const FETCH_LOCATIONS_REQUEST = 'FETCH_LOCATIONS_REQUEST'
 export const FETCH_LOCATIONS_SUCCESS = 'FETCH_LOCATIONS_SUCCESS'
 export const FETCH_LOCATIONS_FAILURE = 'FETCH_LOCATIONS_FAILURE'
+export const SET_CURRENT_LOCATIONS = 'SET_CURRENT_LOCATIONS'
 
 
   export const fetchLocationsRequest = (): FetchLocationsRequestAction => ({
@@ -33,3 +34,8 @@ export const FETCH_LOCATIONS_FAILURE = 'FETCH_LOCATIONS_FAILURE'
         .catch((error) => dispatch(fetchLocationsFailure(error.message)))
     }
   }
+
+  export const setCurrentLocations = (locations: Location[]): LocationsActionTypes => ({
+    type: SET_CURRENT_LOCATIONS,
+    payload: locations,
+  })
