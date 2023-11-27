@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Location } from '../types/locations';
 import rightArrow from '../assets/arrow-right.svg';
-import styles from '../styles/LocationCard.module.scss';
+import styles from '../styles/components/LocationCard.module.scss';
 
 interface LocationCardProps {
   location: Location;

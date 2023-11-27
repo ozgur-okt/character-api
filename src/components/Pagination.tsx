@@ -1,6 +1,6 @@
 import { ReactComponent as RightArrow } from '../assets/arrow-right.svg'
 import { ReactComponent as LeftArrow } from '../assets/arrow-left.svg'
-import styles from '../styles/Pagination.module.scss'
+import styles from '../styles/components/Pagination.module.scss'
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setCurrentLocations } from '../redux/locations/actions';

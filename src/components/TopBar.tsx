@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import logo from '../assets/logo.png'
 import backBtn from '../assets/back-button.svg'
-import styles from '../styles/TopBar.module.scss'
+import styles from '../styles/components/TopBar.module.scss'
 
 function TopBar() {
   const navigate = useNavigate()

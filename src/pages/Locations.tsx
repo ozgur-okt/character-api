@@ -3,7 +3,7 @@ import { RootState } from '../redux/store'
 import { Location } from '../types/locations'
 import Pagination from '../components/Pagination'
 import LocationCard from '../components/LocationCard' 
-import styles from '../styles/Locations.module.scss'
+import styles from '../styles/pages/Locations.module.scss'
 
 const Locations: React.FC = () => {
   const locations = useSelector((state: RootState) => state.locations.locations)

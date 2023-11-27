@@ -5,7 +5,7 @@ import { Character } from '../types/characters';
 import { useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
 
-import styles from '../styles/CharacterDetails.module.scss';
+import styles from '../styles/pages/CharacterDetails.module.scss';
 
 const CharacterDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
