@@ -1,6 +1,3 @@
-import { Action } from 'redux'
-import { ThunkAction } from 'redux-thunk'
-import { RootState } from "../redux/store"
 import { FETCH_CHARACTERS_FAILURE, FETCH_CHARACTERS_REQUEST, FETCH_CHARACTERS_SUCCESS, SET_CHARACTERS, SET_CURRENT_CHARACTERS } from "../redux/characters/actions"
 
 export type Character = {
@@ -57,11 +54,3 @@ export type Character = {
   | FetchCharactersFailureAction
   | SetCurrentCharactersAction
   | SetCharactersAction
-
-
-export type CharactersThunk<ReturnType = void> = ThunkAction<
-  ReturnType,
-  RootState,
-  unknown,
-  Action<string>
->

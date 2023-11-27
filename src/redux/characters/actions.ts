@@ -1,11 +1,12 @@
 //import { Dispatch } from "redux"
-import { Character, CharactersActionTypes, CharactersThunk, FetchCharactersFailureAction, FetchCharactersRequestAction, FetchCharactersSuccessAction } from "../../types/characters"
+import { Character, CharactersActionTypes, FetchCharactersFailureAction, FetchCharactersRequestAction, FetchCharactersSuccessAction } from "../../types/characters"
 
 export const FETCH_CHARACTERS_REQUEST = 'FETCH_CHARACTERS_REQUEST'
 export const FETCH_CHARACTERS_SUCCESS = 'FETCH_CHARACTERS_SUCCESS'
 export const FETCH_CHARACTERS_FAILURE = 'FETCH_CHARACTERS_FAILURE'
 export const SET_CURRENT_CHARACTERS = 'SET_CURRENT_CHARACTERS'
 export const SET_CHARACTERS = 'SET_CHARACTERS'
+
 
 
 export const fetchCharactersRequest = (): FetchCharactersRequestAction => ({
@@ -26,20 +27,23 @@ export const fetchCharactersFailure = (
   payload: error,
 })
 
-export const fetchCharacters = (id: string): CharactersThunk => async dispatch => {
-  dispatch({ type: FETCH_CHARACTERS_REQUEST })
-  try {
-    const response = await fetch(`https://rickandmortyapi.com/api/location/${id}`)
-    const data = await response.json()
-    const characterResponses = await Promise.all(
-      data.residents.map((url: string) => fetch(url))
-    )
-    const characters: Character[] = await Promise.all(
-      characterResponses.map((response: Response) => response.json())
-    )
-    dispatch({ type: FETCH_CHARACTERS_SUCCESS, payload: characters })
-  } catch (error: any) {
-    dispatch({ type: FETCH_CHARACTERS_FAILURE, payload: error.toString() })
+export const fetchCharacters = (id: string) => {
+  return async (dispatch: any) => {
+    try {
+      dispatch({ type: FETCH_CHARACTERS_REQUEST })
+      const response = await fetch(`https://rickandmortyapi.com/api/location/${id}`)
+      const data = await response.json()
+      const characterResponses = await Promise.all(
+        data.residents.map((url: string) => fetch(url))
+      )
+      const characters: Character[] = await Promise.all(
+        characterResponses.map((response: Response) => response.json())
+      )
+      console.log("actions", characters)
+      dispatch({ type: FETCH_CHARACTERS_SUCCESS, payload: characters })
+    } catch (error: any) {
+      dispatch({ type: FETCH_CHARACTERS_FAILURE, payload: error.toString() })
+    }
   }
 }
 
