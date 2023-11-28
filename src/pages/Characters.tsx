@@ -5,11 +5,11 @@ import useCharacters from '../utils/useCharacters'
 import styles from '../styles/pages/Characters.module.scss'
 import Pagination from '../components/Pagination'
 import { useSelector } from 'react-redux'
-import {  RootState } from '../redux/store'
+import { RootState } from '../redux/store'
 
 
 const Characters: React.FC = () => {
- 
+
   const { id: idParam } = useParams<{ id?: string }>()
   const id = idParam || '1'
   const [selectedStatus, setSelectedStatus] = useState<string | null>(null)
@@ -22,7 +22,7 @@ const Characters: React.FC = () => {
       <div className={styles.header}>
         <div className={styles.status}>
           <h3>Filter by Status</h3>
-          <div className={styles.buttons}>            
+          <div className={styles.buttons}>
             <button className={styles.alive} onClick={() => setSelectedStatus('Alive')}>
               <span className={styles.circle}></span> Alive
             </button>
@@ -36,11 +36,11 @@ const Characters: React.FC = () => {
         </div>
         <Link className={styles.favLink} to="/favorites">Go to My Favorites</Link>
       </div>
-     <div className={styles.characters}>
+      <div className={styles.characters}>
         {currentCharacters.map((character) => (
           <CharacterCard key={character.id} character={character} />
         ))}
-      </div> 
+      </div>
       <Pagination items={charactersByStatus} paginationFor='characters' itemsPerPage={charactersPerPage} />
     </div>
   )

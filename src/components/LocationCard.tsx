@@ -1,11 +1,7 @@
 import { Link } from 'react-router-dom';
-import { Location } from '../types/locations';
+import { LocationCardProps } from '../types/locations';
 import rightArrow from '../assets/arrow-right.svg';
 import styles from '../styles/components/LocationCard.module.scss';
-
-interface LocationCardProps {
-  location: Location;
-}
 
 const LocationCard: React.FC<LocationCardProps> = ({ location }) => {
   return (
@@ -17,7 +13,7 @@ const LocationCard: React.FC<LocationCardProps> = ({ location }) => {
           <p>Dimension:</p>
           <p>Resident count:</p>
         </div>
-        <div>
+        <div className={styles.values}>
           <p>{location.name}</p>
           <p>{location.type}</p>
           <p>{location.dimension}</p>

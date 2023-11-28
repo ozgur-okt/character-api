@@ -18,7 +18,7 @@ function TopBar() {
         alt="back" 
         onClick={handleBackClick} 
       />
-      <img src={logo} alt="logo" height={80} />
+      <img className={styles.logo} src={logo} alt="logo" height={80} />
     </div>
   )
 }

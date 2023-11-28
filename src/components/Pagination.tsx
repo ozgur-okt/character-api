@@ -34,7 +34,6 @@ function Pagination(props: { items: Array<any>, itemsPerPage: number, pagination
 
   return (
     <div className={styles.pagination}>
-      <div>Pagination</div>
       <button className={styles.previous} onClick={prevPage} disabled={currentPage === 1}><LeftArrow className={currentPage === 1 ? styles.arrowDisabled : styles.arrow} /></button>
       {currentPage > 2 && <button className={styles.pageNumber} onClick={() => paginate(1)}>1</button>}
       {currentPage > 3 && <span>...</span>}

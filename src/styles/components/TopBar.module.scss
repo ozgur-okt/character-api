@@ -1,18 +1,19 @@
-.topbar{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    border-bottom: 1px solid #e6e6e6;
-    padding: 0.5rem 0;
-    position: relative;
+.topbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-bottom: 1px solid #e6e6e6;
+  padding: 0.5rem 0;
+  position: relative;
 
-    .backBtn {
-      position: absolute;
-      left: 0;
+  .backBtn {
+    position: absolute;
+    left: 0;
+
   }
 
-  img {
-    display: none;
+  .logo {
+    visibility: hidden;
   }
 }

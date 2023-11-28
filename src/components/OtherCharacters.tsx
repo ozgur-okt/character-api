@@ -1,12 +1,8 @@
 // OtherCharacters.tsx
 import React from 'react';
-import { Character } from '../types/characters';
+import { OtherCharactersProps } from '../types/characters';
 import { Link } from 'react-router-dom';
 import styles from '../styles/components/OtherCharacters.module.scss';
-
-interface OtherCharactersProps {
-  characters: Character[];
-}
 
 const OtherCharacters: React.FC<OtherCharactersProps> = ({ characters }) => {
   return (
