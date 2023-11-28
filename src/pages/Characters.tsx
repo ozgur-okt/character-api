@@ -26,7 +26,7 @@ const Characters: React.FC = () => {
     <div className={styles.container}>
       <div className={styles.header}>
         <div className={styles.status}>
-          <h3>Filter by Status</h3>
+          <h2>Filter by Status</h2>
           <div className={styles.buttons}>
             <button className={styles.alive} onClick={() => setSelectedStatus('Alive')}>
               <span className={styles.circle}></span> Alive
@@ -46,10 +46,12 @@ const Characters: React.FC = () => {
         </div>
         <Link className={styles.favLink} to="/favorites">Go to My Favorites</Link>
       </div>
-      <div className={styles.characters}>
-        {currentCharacters.map((character) => (
-          <CharacterCard key={character.id} character={character} />
-        ))}
+      <div className={styles.charactersContainer}>
+        <div className={styles.characters}>
+          {currentCharacters.map((character) => (
+            <CharacterCard key={character.id} character={character} />
+          ))}
+        </div>
       </div>
       <Pagination items={charactersByStatus} paginationFor='characters' itemsPerPage={charactersPerPage} />
     </div>

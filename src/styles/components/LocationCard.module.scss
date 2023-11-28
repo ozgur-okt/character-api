@@ -9,7 +9,7 @@
   transition: all 0.3s ease-in-out;
 
   &:hover {
-    background-color: #1ca3cd;
+    background-color: #40B5CB;
     scale: 1.1;
   }
 
@@ -38,5 +38,11 @@
   img {
     height: 4rem;
     width: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .location {
+    padding: 0;
   }
 }

@@ -18,14 +18,39 @@ function MyFavorites() {
     setIsLoading(false);
   }, [favoritesList.length])
 
+  const character = {
+    "id": 45,
+    "name": "Bill",
+    "status": "Alive",
+    "species": "Human",
+    "type": "",
+    "gender": "Male",
+    "origin": {
+      "name": "Earth (C-137)",
+      "url": "https://rickandmortyapi.com/api/location/1"
+    },
+    "location": {
+      "name": "Earth (C-137)",
+      "url": "https://rickandmortyapi.com/api/location/1"
+    },
+    "image": "https://rickandmortyapi.com/api/character/avatar/45.jpeg",
+    "episode": [
+      "https://rickandmortyapi.com/api/episode/3"
+    ],
+    "url": "https://rickandmortyapi.com/api/character/45",
+    "created": "2017-11-05T10:22:27.446Z"
+  }
+
   if (isLoading) {
     return <div>Loading...</div>;
   }
 
+  let mock = [character, character, character, character]
+
   return (
     <div className={styles.container}>
-      {favoritesList.length > 0 ? (
-        favoritesList.map((character) => (
+      {mock.length > 0 ? (
+        mock.map((character) => (
           <CharacterCard key={character.id} character={character} />
         ))
       ) : (

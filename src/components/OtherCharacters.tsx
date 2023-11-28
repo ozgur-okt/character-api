@@ -9,16 +9,12 @@ const OtherCharacters: React.FC<OtherCharactersProps> = ({ characters }) => {
     <div className={styles.otherCharacters}>
       <h2>Other Characters</h2>
       {characters.map((character) => (
-        <Link key={character.id} to={`/characters/${character.id}`} className={styles.otherCharacter}>
-          <img src={character.image} alt={character.name} className={styles.otherCharacterImage} />
-          <div>
+        <Link key={character.id} to={`/characters/${character.id}`} className={styles.character}>
+          <img src={character.image} alt={character.name} className={styles.characterImage} />
+          <div className={styles.info}>
             <h2>{character.name}</h2>
-            <div>
-              <span>Status: {character.status}</span>
-              <span>Species: {character.species}</span>
-            </div>
-            <p>Gender: {character.gender}</p>
-            <p>Current Location: {character.location.name}</p>
+            <p className={styles.location}>{character.location.name}</p>
+            <p>{character.gender}</p>
           </div>
         </Link>
       ))}

@@ -1,8 +1,110 @@
-.container{
+.container {
   display: flex;
-  justify-content: space-around;
- 
+  justify-content: space-between;
+  //border: 1px dashed black;
+  padding: 0 10rem 0 2rem;
 
-  
+  .character {
+    //border: 1px dashed black;
+    width: 35vw;
+
+    img {
+      width: 100%;
+      border-radius: 3px;
+    }
+
+    h2 {
+      color: gray;
+      margin-bottom: 4px;
+      margin-top: 0;
+      font-weight: 400;
+      font-size: 2rem;
+    }
+
+    .info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+
+      .status {
+        font-weight: 600;
+        font-size: 1.2rem;
+
+        .statusAlive {
+          position: relative;
+          padding-left: 25px;
+
+          &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: green;
+          }
+        }
+
+        .statusDead {
+          position: relative;
+          padding-left: 25px;
+
+          &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: red;
+          }
+        }
+
+        .statusUnknown {
+          position: relative;
+          padding-left: 25px;
+
+          &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: gray;
+          }
+        }
+      }
+
+      .gender {
+        font-weight: 600;
+        //font-size: 1.2rem;
+      }
+
+    }
+
+    .location {
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+
+  }
 }
 
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 0 2rem 0 2rem;
+
+    .character {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+  }
+}

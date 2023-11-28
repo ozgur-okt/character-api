@@ -1,47 +1,56 @@
 .pagination {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    //gap: 10px;
-    //width: 30rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  //gap: 10px;
+  //width: 30rem;
+  cursor: pointer;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  width: 400px;
+  //border: 1px solid black;
+
+  .previous,
+  .next {
+    background-color: white;
+    border: none;
     cursor: pointer;
-    position: fixed; 
-    bottom: 0;
-    left: 50%; 
-    transform: translate(-50%, 0%);
-    width: 400px;
-    border: 1px solid black;
-
-    .previous, .next {
-      background-color: white;
-      border: none;
-      cursor: pointer;
-    }
-
-    .pageNumber {
-      background-color: white;
-      width: 2.5rem;
-      padding: 10px;
-      border: none;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .currentPageNumber {
-      width: 2.5rem;
-      background-color: black;
-      color: white;
-      font-weight: bold;
-      padding: 10px;
-      border-radius: 50%;
-    }
-
-    .arrow {
-      fill: black;
-    }
-
-    .arrowDisabled {
-      fill: grey;
-      cursor: not-allowed;
-    }
   }
+
+  .pageNumber {
+    background-color: white;
+    width: 2.3rem;
+    padding: 10px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .currentPageNumber {
+    width: 2.3rem;
+    background-color: black;
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 50%;
+  }
+
+  .arrow {
+    fill: black;
+  }
+
+  .arrowDisabled {
+    fill: grey;
+    cursor: not-allowed;
+  }
+}
+
+@media (max-width: 768px) {
+  .pagination {
+    background-color: white;
+    opacity: 0.8;
+  }
+}

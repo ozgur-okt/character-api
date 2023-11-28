@@ -1,9 +1,43 @@
-.otherCharacter {
-  display: flex;
+.otherCharacters {
+  //display: flex;
+  //border: 1px solid black;
+  width: 30vw;
 
-  .otherCharacterImage {
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
+  .character {
+    display: flex;
+    text-decoration: none;
+    margin-bottom: 1rem;
+
+    .characterImage {
+      width: 100px;
+      height: 100px;
+      margin-right: 10px;
+      border-radius: 3px;
+    }
+
+    .info {
+
+      h2 {
+        margin: 0;
+        color: gray;
+      }
+
+      p {
+        margin: 0.5rem 0;
+        color: black;
+        font-style: italic;
+        font-weight: 600;
+      }
+
+      .location {
+        font-size: 1.3rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .otherCharacters {
+    width: 100%;
   }
 }

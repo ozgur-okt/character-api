@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Character, CharacterProps } from '../types/characters'
 import whiteFavoriteIcon from '../assets/white-favorite.svg'
 import redFavoriteIcon from '../assets/red-favorite.svg'
+import { ReactComponent as RighArrow } from '../assets/arrow-right.svg'
 import styles from '../styles/components/CharacterCard.module.scss'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../redux/store'
@@ -46,10 +47,14 @@ const CharacterCard: React.FC<CharacterProps> = ({ character }) => {
         height={40}
         width={40}
       />
-      <h2>{character.name}</h2>
-      <div>
-        <span>{character.status}</span>
-        <span>{character.species}</span>
+      <div className={styles.info}>
+        <div>
+          <h2>{character.name}</h2>
+          <span className={styles[`status${character.status}`]}>{character.status}</span>
+          <span> - </span>
+          <span>{character.species}</span>
+        </div>
+        <RighArrow className={styles.arrow} />
       </div>
     </Link>
   )
