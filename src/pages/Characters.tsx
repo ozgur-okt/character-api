@@ -15,7 +15,12 @@ const Characters: React.FC = () => {
   const [selectedStatus, setSelectedStatus] = useState<string | null>(null)
   const charactersPerPage = 3
   const currentCharacters = useSelector((state: RootState) => state.characters.currentCharacters)
+  const isLoading = useSelector((state: RootState) => state.characters.loading)
   const { charactersByStatus } = useCharacters(id, selectedStatus)
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className={styles.container}>
@@ -32,6 +37,11 @@ const Characters: React.FC = () => {
             <button className={styles.unknown} onClick={() => setSelectedStatus('Unknown')}>
               <span className={styles.circle}></span> Unknown
             </button>
+            {selectedStatus && (
+              <button className={styles.clear} onClick={() => setSelectedStatus(null)}>
+                <span className={styles.circle}></span> Clear
+              </button>
+            )}
           </div>
         </div>
         <Link className={styles.favLink} to="/favorites">Go to My Favorites</Link>

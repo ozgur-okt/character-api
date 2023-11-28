@@ -10,10 +10,16 @@
   .backBtn {
     position: absolute;
     left: 0;
-
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      opacity: 0.7;
+      scale: 1.1;
+    }
   }
 
   .logo {
     visibility: hidden;
+    height: 80px;
   }
 }

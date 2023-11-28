@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { LocationCardProps } from '../types/locations';
-import rightArrow from '../assets/arrow-right.svg';
+import {ReactComponent as RightArrow} from '../assets/arrow-right.svg';
 import styles from '../styles/components/LocationCard.module.scss';
 
 const LocationCard: React.FC<LocationCardProps> = ({ location }) => {
@@ -20,7 +20,7 @@ const LocationCard: React.FC<LocationCardProps> = ({ location }) => {
           <p>{location.residents.length}</p>
         </div>
       </div>
-      <img src={rightArrow} alt="right arrow" />
+      <RightArrow className={styles.rightArrow} />
     </Link>
   );
 };

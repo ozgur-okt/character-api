@@ -38,11 +38,15 @@
       .unknown .circle {
         background-color: gray;
       }
+
+      .clear .circle {
+        background-color: rgb(0, 149, 255);
+      }
     }
   }
 
   .characters {
-    border:1px das white;
+    border:1px dashed blue;
     display: flex;
     //height: 20rem;
     //gap: 3rem;

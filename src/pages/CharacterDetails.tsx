@@ -1,5 +1,5 @@
 // CharacterDetails.tsx
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Character } from '../types/characters';
 import { useSelector } from 'react-redux';
@@ -13,8 +13,17 @@ const CharacterDetails: React.FC = () => {
   const characters = useSelector((state: RootState) => state.characters.characters);
   const character = characters.find((character: Character) => character.id === Number(id));
 
-  console.log("characters",characters);
-  console.log("id",id);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    if (character) {
+      setIsLoading(false);
+    }
+  }, [character]);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   const otherCharacters = characters.filter((character: Character) => character.id !== Number(id)).slice(0, 2);
 

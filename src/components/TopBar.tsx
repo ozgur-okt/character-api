@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import logo from '../assets/logo.png'
-import backBtn from '../assets/back-button.svg'
+import {ReactComponent as BackButton} from '../assets/back-button.svg'
 import styles from '../styles/components/TopBar.module.scss'
 
 function TopBar() {
@@ -12,13 +12,8 @@ function TopBar() {
 
   return (
     <div className={styles.topbar}>
-      <img 
-        className={styles.backBtn} 
-        src={backBtn} 
-        alt="back" 
-        onClick={handleBackClick} 
-      />
-      <img className={styles.logo} src={logo} alt="logo" height={80} />
+      <BackButton className={styles.backBtn} onClick={handleBackClick} />
+      <img className={styles.logo} src={logo} alt="logo" />
     </div>
   )
 }

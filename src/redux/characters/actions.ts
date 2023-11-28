@@ -30,7 +30,7 @@ export const fetchCharactersFailure = (
 export const fetchCharacters = (id: string) => {
   return async (dispatch: any) => {
     try {
-      dispatch({ type: FETCH_CHARACTERS_REQUEST })
+      dispatch(fetchCharactersRequest())
       const response = await fetch(`https://rickandmortyapi.com/api/location/${id}`)
       const data = await response.json()
       const characterResponses = await Promise.all(

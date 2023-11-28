@@ -2,14 +2,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid black;
+  border: 1px solid rgba(0, 0, 0, 0.459);
   border-radius: 25px;
   padding: 0 2rem 0 0;
   text-decoration: none;
   transition: all 0.3s ease-in-out;
 
   &:hover {
-    background-color: #f1f1f1;
+    background-color: #1ca3cd;
     scale: 1.1;
   }
 
@@ -28,6 +28,11 @@
       color: black;
     }
 
+  }
+
+  .rightArrow {
+    height: 4rem;
+    width: 4rem;
   }
 
   img {

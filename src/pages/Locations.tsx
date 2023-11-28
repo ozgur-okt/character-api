@@ -1,3 +1,4 @@
+import React from 'react';
 import { useSelector } from 'react-redux'
 import { RootState } from '../redux/store'
 import { Location } from '../types/locations'
@@ -8,9 +9,12 @@ import styles from '../styles/pages/Locations.module.scss'
 const Locations: React.FC = () => {
   const locations = useSelector((state: RootState) => state.locations.locations)
   const currentLocations = useSelector((state: RootState) => state.locations.currentLocations)
+  const isLoading = useSelector((state: RootState) => state.locations.loading)
   const locationsPerPage = 4
 
-  console.log('currentLocations', currentLocations)
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className={styles.container}>
