@@ -5,13 +5,14 @@
   height: auto;
   //min-height: 38rem;
   text-decoration: none;
-
   transition: all 0.3s ease-in-out;
+  padding: 0 0 0.5rem 0;
+
 
   &:hover {
     box-shadow: 0 0 10px #40B5CB;
-    transform: scale(1.05);
-    padding: 0.5rem;
+    transform: scale(1.01);
+    //padding: 0 0 0.5rem 0;
     opacity: 0.8;
 
     .arrow {
@@ -31,13 +32,13 @@
 
     h2 {
       color: gray;
-      margin-bottom: 4px;
-      margin-top: 0;
+      margin: 0 0 4px 8px;
       font-weight: 400;
     }
 
     span {
       color: black;
+      margin: 0 0 0px 8px;
     }
 
     // CharacterCard.module.scss
@@ -98,6 +99,7 @@
 @media (max-width: 768px) {
   .card {
     width: 28rem;
+    height: 100%;
     flex: 0 0 auto;
     scroll-snap-align: start;
 
@@ -117,5 +119,9 @@
       height: 100%;
       object-fit: cover;
     }
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
   }
 }

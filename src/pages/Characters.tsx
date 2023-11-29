@@ -1,22 +1,41 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import CharacterCard from '../components/CharacterCard'
-import useCharacters from '../hooks/useCharacters'
 import styles from '../styles/pages/Characters.module.scss'
 import Pagination from '../components/Pagination'
-import { useSelector } from 'react-redux'
-import { RootState } from '../redux/store'
+import { useDispatch, useSelector } from 'react-redux'
+import { AppDispatch, RootState } from '../redux/store'
+import { fetchCharacters } from '../redux/characters/actions'
+import { Character } from '../types/characters'
 
 
 const Characters: React.FC = () => {
 
+  const useAppDispatch = () => useDispatch<AppDispatch>()
+  const dispatch = useAppDispatch()
+
   const { id: idParam } = useParams<{ id?: string }>()
   const id = idParam || '1'
+
   const [selectedStatus, setSelectedStatus] = useState<string | null>(null)
-  const charactersPerPage = 3
+  const [charactersByStatus, setCharactersByStatus] = useState<Character[]>([])
+  
+  const characters = useSelector((state: RootState) => state.characters.characters)
   const currentCharacters = useSelector((state: RootState) => state.characters.currentCharacters)
   const isLoading = useSelector((state: RootState) => state.characters.loading)
-  const { charactersByStatus } = useCharacters(id, selectedStatus)
+  //const { charactersByStatus } = useCharacters(id, selectedStatus)
+  const charactersPerPage = 3
+
+  useEffect(() => {
+    if (id) dispatch(fetchCharacters(id))
+  }, [dispatch, id])
+
+  useEffect(() => {
+    const filtered = selectedStatus
+      ? characters.filter(character => character.status === selectedStatus)
+      : characters
+    setCharactersByStatus(filtered)
+  }, [characters, selectedStatus])
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -44,8 +63,8 @@ const Characters: React.FC = () => {
               <span className={styles.circle}></span> Dead
             </button>
             <button
-              className={`${styles.unknown} ${selectedStatus === 'Unknown' ? styles.clicked : ''}`}
-              onClick={() => selectedStatus === 'Unknown' ? setSelectedStatus(null) : setSelectedStatus('Unknown')}
+              className={`${styles.unknown} ${selectedStatus === 'unknown' ? styles.clicked : ''}`}
+              onClick={() => selectedStatus === 'unknown' ? setSelectedStatus(null) : setSelectedStatus('unknown')}
             >
               <span className={styles.circle}></span> Unknown
             </button>
