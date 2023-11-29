@@ -1,22 +1,25 @@
+$color-gray: gray;
+$color-black: black;
+$color-green: green;
+$color-red: red;
+$color-blue: #40B5CB;
+
 .card {
   position: relative;
   border-radius: 3px;
   width: 28vw;
   height: auto;
-  //min-height: 38rem;
   text-decoration: none;
   transition: all 0.3s ease-in-out;
   padding: 0 0 0.5rem 0;
 
-
   &:hover {
-    box-shadow: 0 0 10px #40B5CB;
+    box-shadow: 0 0 10px $color-blue;
     transform: scale(1.01);
-    //padding: 0 0 0.5rem 0;
     opacity: 0.8;
 
     .arrow {
-      fill: #40B5CB;
+      fill: $color-blue;
     }
   }
 
@@ -31,21 +34,19 @@
     align-items: center;
 
     h2 {
-      color: gray;
-      margin: 0 0 4px 8px;
+      color: $color-gray;
+      margin: 0 0 4px 5px;
       font-weight: 400;
     }
 
     span {
-      color: black;
-      margin: 0 0 0px 8px;
+      color: $color-black;
     }
-
-    // CharacterCard.module.scss
 
     .statusAlive {
       position: relative;
       padding-left: 20px;
+      margin: 0 0 0px 5px;
 
       &::before {
         content: "";
@@ -56,13 +57,14 @@
         width: 15px;
         height: 15px;
         border-radius: 50%;
-        background-color: green;
+        background-color: $color-green;
       }
     }
 
     .statusDead {
       position: relative;
       padding-left: 20px;
+      margin: 0 0 0px 5px;
 
       &::before {
         content: "";
@@ -73,13 +75,14 @@
         width: 15px;
         height: 15px;
         border-radius: 50%;
-        background-color: red;
+        background-color: $color-red;
       }
     }
 
-    .statusUnknown {
+    .statusunknown {
       position: relative;
       padding-left: 20px;
+      margin: 0 0 0px 5px;
 
       &::before {
         content: "";
@@ -90,7 +93,7 @@
         width: 15px;
         height: 15px;
         border-radius: 50%;
-        background-color: gray;
+        background-color: $color-gray;
       }
     }
   }
@@ -110,7 +113,7 @@
       opacity: 1;
 
       .arrow {
-        fill: black;
+        fill: $color-black;
       }
     }
 

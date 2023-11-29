@@ -11,11 +11,6 @@ import CharacterDetails from "./pages/CharacterDetails"
 import MyFavorites from "./pages/MyFavorites"
 
 function App() {
-  const dispatch: ThunkDispatch<any, any, AnyAction> = useDispatch()
-
-  useEffect(() => {
-    dispatch(fetchLocations())
-  }, [dispatch])
 
   return (
     <Router>

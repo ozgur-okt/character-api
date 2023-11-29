@@ -1,3 +1,7 @@
+$color-gray: gray;
+$color-green: green;
+$color-red: red;
+
 .container {
   display: flex;
   justify-content: space-between;
@@ -12,7 +16,7 @@
     }
 
     h2 {
-      color: gray;
+      color: $color-gray;
       margin-bottom: 4px;
       margin-top: 0;
       font-weight: 400;
@@ -41,7 +45,7 @@
             width: 20px;
             height: 20px;
             border-radius: 50%;
-            background-color: green;
+            background-color: $color-green;
           }
         }
 
@@ -58,7 +62,7 @@
             width: 20px;
             height: 20px;
             border-radius: 50%;
-            background-color: red;
+            background-color: $color-red;
           }
         }
 
@@ -75,23 +79,20 @@
             width: 20px;
             height: 20px;
             border-radius: 50%;
-            background-color: gray;
+            background-color: $color-gray;
           }
         }
       }
 
       .gender {
         font-weight: 600;
-        //font-size: 1.2rem;
       }
-
     }
 
     .location {
       font-weight: 600;
       font-size: 1.2rem;
     }
-
   }
 }
 

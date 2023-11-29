@@ -1,11 +1,12 @@
-.container {
+$color-white: white;
+$color-black: black;
 
+.container {
   .locations {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 3rem;
     padding: 1rem 3rem 3rem 3rem;
-
   }
 
   .pagination {
@@ -17,21 +18,21 @@
     cursor: pointer;
 
     .previous, .next {
-      background-color: white;
+      background-color: $color-white;
       border: none;
       cursor: pointer;
     }
 
     .pageNumber {
-      background-color: white;
+      background-color: $color-white;
       padding: 10px;
       border: none;
       cursor: pointer;
     }
 
     .currentPageNumber {
-      background-color: black;
-      color: white;
+      background-color: $color-black;
+      color: $color-white;
       padding: 10px;
       border-radius: 50%;
     }

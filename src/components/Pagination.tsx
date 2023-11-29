@@ -6,12 +6,17 @@ import { useDispatch } from 'react-redux';
 import { setCurrentLocations } from '../redux/locations/actions';
 import { setCurrentCharacters } from '../redux/characters/actions';
 
-function Pagination(props: { items: Array<any>, itemsPerPage: number, paginationFor: string }) {
-
+function Pagination(props: { items: Array<any>, itemsPerPage: number, paginationFor: string, resetPagination: boolean }) {
   const dispatch = useDispatch()
-  const { items, itemsPerPage, paginationFor } = props
+  const { items, itemsPerPage, paginationFor, resetPagination } = props
 
   const [currentPage, setCurrentPage] = useState(1);
+
+  useEffect(() => {
+    if (resetPagination) {
+      setCurrentPage(1);
+    }
+  }, [resetPagination]);
 
   useEffect(() => {
     const indexOfLastItem = currentPage * itemsPerPage;

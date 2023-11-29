@@ -9,7 +9,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../redux/store'
 import { addToFavorites, removeFromFavorites } from '../redux/favorites/actions'
 
-
 const CharacterCard: React.FC<CharacterProps> = ({ character }) => {
   const dispatch = useDispatch()
   const favorites: Character[] = useSelector((state: RootState) => state.favorites.favorites)

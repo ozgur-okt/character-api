@@ -1,5 +1,3 @@
-// OtherCharacters.tsx
-import React from 'react';
 import { OtherCharactersProps } from '../types/characters';
 import { Link } from 'react-router-dom';
 import styles from '../styles/components/OtherCharacters.module.scss';

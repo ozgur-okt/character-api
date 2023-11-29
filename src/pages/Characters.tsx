@@ -68,13 +68,6 @@ const Characters: React.FC = () => {
             >
               <span className={styles.circle}></span> Unknown
             </button>
-
-            {/* {selectedStatus && (
-                <button className={styles.clear} onClick={() => setSelectedStatus(null)}>
-                  <span className={styles.circle}></span> Clear
-                </button>
-              )} */}
-
           </div>
         </div>
       </div>
@@ -87,7 +80,7 @@ const Characters: React.FC = () => {
             : <div className={styles.noCharacters}>No characters found</div>}
         </div>
       </div>
-      <Pagination items={charactersByStatus} paginationFor='characters' itemsPerPage={charactersPerPage} />
+      <Pagination items={charactersByStatus} paginationFor='characters' itemsPerPage={charactersPerPage} resetPagination={selectedStatus !== null} />
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { LocationCardProps } from '../types/locations';
-import {ReactComponent as RightArrow} from '../assets/arrow-right.svg';
+import { ReactComponent as RightArrow } from '../assets/arrow-right.svg';
 import styles from '../styles/components/LocationCard.module.scss';
 
 const LocationCard: React.FC<LocationCardProps> = ({ location }) => {

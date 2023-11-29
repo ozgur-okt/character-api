@@ -1,3 +1,7 @@
+$color-white: white;
+$color-black: black;
+$color-grey: grey;
+
 .pagination {
   display: flex;
   justify-content: space-between;
@@ -8,17 +12,16 @@
   left: 50%;
   transform: translate(-50%, 0%);
   width: 400px;
- 
 
   .previous,
   .next {
-    background-color: white;
+    background-color: $color-white;
     border: none;
     cursor: pointer;
   }
 
   .pageNumber {
-    background-color: white;
+    background-color: $color-white;
     width: 2.3rem;
     padding: 10px;
     border: none;
@@ -28,27 +31,27 @@
 
   .currentPageNumber {
     width: 2.3rem;
-    background-color: black;
+    background-color: $color-black;
     border: none;
-    color: white;
+    color: $color-white;
     font-weight: bold;
     padding: 10px;
     border-radius: 50%;
   }
 
   .arrow {
-    fill: black;
+    fill: $color-black;
   }
 
   .arrowDisabled {
-    fill: grey;
+    fill: $color-grey;
     cursor: not-allowed;
   }
 }
 
 @media (max-width: 768px) {
   .pagination {
-    background-color: white;
+    background-color: $color-white;
     opacity: 0.8;
   }
 }

@@ -1,3 +1,6 @@
+$color-gray: gray;
+$color-black: black;
+
 .otherCharacters {
   width: 30vw;
 
@@ -14,15 +17,14 @@
     }
 
     .info {
-
       h2 {
         margin: 0;
-        color: gray;
+        color: $color-gray;
       }
 
       p {
         margin: 0.5rem 0;
-        color: black;
+        color: $color-black;
         font-style: italic;
         font-weight: 600;
       }

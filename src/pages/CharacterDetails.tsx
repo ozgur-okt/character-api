@@ -29,7 +29,7 @@ const CharacterDetails: React.FC = () => {
     otherCharacter.id !== Number(id) &&
     otherCharacter.location.name === character?.location.name &&
     otherCharacter.status === character?.status
-  ).slice(0, 2);
+  );
   
   return (
     <div className={styles.container}>

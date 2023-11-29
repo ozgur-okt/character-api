@@ -1,10 +1,14 @@
+$color-black: black;
+$color-white: white;
+$color-green: green;
+$color-red: red;
+$color-gray: gray;
+$color-blue: #40B5CB;
+
 .container {
   padding: 0 2rem;
 
   .header {
-    //display: flex;
-    //justify-content: space-between;
-    //align-items: center;
     margin-bottom: 1rem;
 
     .titles {
@@ -13,13 +17,12 @@
       align-items: center;
 
       h2 {
-        //line-height: 0;
         margin: 0.5rem 0;
         font-size: 1.5rem;
       }
 
       .favLink {
-        color: black;
+        color: $color-black;
         font-size: 1.5rem;
         font-weight: 700;
         width: 13rem;
@@ -40,8 +43,8 @@
         justify-content: space-between;
 
         button {
-          background-color: white;
-          border: 1px solid black;
+          background-color: $color-white;
+          border: 1px solid $color-black;
           height: 2.5rem;
           width: 14rem;
           border-radius: 5px;
@@ -59,39 +62,30 @@
         }
 
         .alive .circle {
-          background-color: green;
+          background-color: $color-green;
         }
 
         .dead .circle {
-          background-color: red;
+          background-color: $color-red;
         }
 
         .unknown .circle {
-          background-color: gray;
-        }
-
-        .clear .circle {
-          background-color: rgb(0, 149, 255);
+          background-color: $color-gray;
         }
 
         .clicked {
-          background-color: #40B5CB;
-          color: white;
+          background-color: $color-blue;
+          color: $color-white;
         }
       }
     }
-
-
   }
 
   .charactersContainer {
-
-
     .characters {
       display: flex;
       height: min-content;
       column-gap: 6rem;
-      //justify-content: flex-start;
     }
   }
 }
@@ -99,11 +93,10 @@
 @media (max-width: 768px) {
   .container {
     .header {
-
       .buttonsContainer {
         .buttons {
-          justify-content: flex-start; // Ensure cards are left-aligned
-          scroll-snap-type: x mandatory; // Enable snapping to each card
+          justify-content: flex-start;
+          scroll-snap-type: x mandatory;
           overflow-x: scroll;
 
           button {
@@ -116,8 +109,8 @@
 
     .charactersContainer {
       .characters {
-        justify-content: flex-start; // Ensure cards are left-aligned
-        scroll-snap-type: x mandatory; // Enable snapping to each card
+        justify-content: flex-start;
+        scroll-snap-type: x mandatory;
         overflow-x: scroll;
       }
     }

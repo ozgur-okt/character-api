@@ -1,18 +1,25 @@
+$color-black: black;
+$color-blue: #40B5CB;
+$color-border: rgba(0, 0, 0, 0.459);
+
 .location {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid rgba(0, 0, 0, 0.459);
+  border: 1px solid $color-border;
   border-radius: 25px;
   padding: 0 2rem 0 0;
   text-decoration: none;
   transition: all 0.3s ease-in-out;
 
   &:hover {
-    box-shadow: 0 0 10px #40B5CB;
-    //background-color: #40B5CB;
+    box-shadow: 0 0 10px $color-blue;
     scale: 1.1;
     border: none;
+
+    .rightArrow {
+      fill: $color-blue;
+    }
   }
 
   .information {
@@ -23,18 +30,18 @@
     
     .keys {
       font-weight: bold;
-      color: black;
+      color: $color-black;
     }
 
     .values {
-      color: black;
+      color: $color-black;
     }
-
   }
 
   .rightArrow {
     height: 4rem;
     width: 4rem;
+    transition: all 0.3s ease-in-out;
   }
 
   img {
