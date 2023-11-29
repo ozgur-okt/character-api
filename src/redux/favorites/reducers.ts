@@ -1,4 +1,5 @@
-import { FavoritesState, FavoritesActionTypes, ADD_TO_FAVORITES, REMOVE_FROM_FAVORITES } from '../../types/favorites'
+import { FavoritesState, FavoritesActionTypes } from '../../types/favorites'
+import { ADD_TO_FAVORITES, REMOVE_FROM_FAVORITES } from './actions'
 
 const initialState: FavoritesState = {
   favorites: [],

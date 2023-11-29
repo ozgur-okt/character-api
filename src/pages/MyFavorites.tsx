@@ -5,26 +5,18 @@ import { Character } from '../types/characters'
 import CharacterCard from '../components/CharacterCard'
 import styles from '../styles/pages/MyFavorites.module.scss'
 
-function MyFavorites() {
+const MyFavorites: React.FC = () => {
   const favorites = useSelector((state: RootState) => state.favorites.favorites)
-  const [favoritesList, setFavoritesList] = useState<Character[]>(favorites)
-  const [isLoading, setIsLoading] = useState(true);
+  const [favoritesList, setFavoritesList] = useState<Character[]>([])
 
   useEffect(() => {
-    if (favoritesList.length === 0) {
-      const favoritesFromStorage = JSON.parse(localStorage.getItem('favorites') || '[]')
-      setFavoritesList(favoritesFromStorage)
-    }
-    setIsLoading(false);
-  }, [favoritesList.length])
+    const favoritesFromStorage = JSON.parse(localStorage.getItem('favorites') || '[]')
+    setFavoritesList(favorites.length > 0 ? favorites : favoritesFromStorage)
+  }, [favorites])
 
- 
-
-  if (isLoading) {
-    return <div>Loading...</div>;
+  if (!favoritesList) {
+    return <div>Loading...</div>
   }
-
-  //let mock = [character, character, character, character]
 
   return (
     <div className={styles.container}>

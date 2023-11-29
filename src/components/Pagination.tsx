@@ -1,27 +1,27 @@
+import { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { setCurrentLocations } from '../redux/locations/actions'
+import { setCurrentCharacters } from '../redux/characters/actions'
 import { ReactComponent as RightArrow } from '../assets/arrow-right.svg'
 import { ReactComponent as LeftArrow } from '../assets/arrow-left.svg'
 import styles from '../styles/components/Pagination.module.scss'
-import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { setCurrentLocations } from '../redux/locations/actions';
-import { setCurrentCharacters } from '../redux/characters/actions';
 
 function Pagination(props: { items: Array<any>, itemsPerPage: number, paginationFor: string, resetPagination: boolean }) {
   const dispatch = useDispatch()
   const { items, itemsPerPage, paginationFor, resetPagination } = props
 
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1)
 
   useEffect(() => {
     if (resetPagination) {
-      setCurrentPage(1);
+      setCurrentPage(1)
     }
-  }, [resetPagination]);
+  }, [resetPagination])
 
   useEffect(() => {
-    const indexOfLastItem = currentPage * itemsPerPage;
-    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
+    const indexOfLastItem = currentPage * itemsPerPage
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage
+    const currentItems = items.slice(indexOfFirstItem, indexOfLastItem)
 
     if (paginationFor === 'locations') {
       dispatch(setCurrentLocations(currentItems))
@@ -31,11 +31,11 @@ function Pagination(props: { items: Array<any>, itemsPerPage: number, pagination
   }, [dispatch, currentPage, items, itemsPerPage, paginationFor])
 
 
-  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
-  const nextPage = () => setCurrentPage(prev => prev + 1);
-  const prevPage = () => setCurrentPage(prev => prev - 1);
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber)
+  const nextPage = () => setCurrentPage(prev => prev + 1)
+  const prevPage = () => setCurrentPage(prev => prev - 1)
 
-  const totalPages = Math.ceil(items.length / itemsPerPage);
+  const totalPages = Math.ceil(items.length / itemsPerPage)
 
   return (
     <div className={styles.pagination}>

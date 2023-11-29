@@ -1,4 +1,4 @@
-import { FETCH_CHARACTERS_FAILURE, FETCH_CHARACTERS_REQUEST, FETCH_CHARACTERS_SUCCESS, SET_CHARACTERS, SET_CURRENT_CHARACTERS } from "../redux/characters/actions"
+import { FETCH_CHARACTERS_FAILURE, FETCH_CHARACTERS_REQUEST, FETCH_CHARACTERS_SUCCESS, SET_CURRENT_CHARACTERS } from "../redux/characters/actions"
 
 export type Character = {
   id: number
@@ -33,7 +33,7 @@ export type CharacterProps = {
 }
 
 export type OtherCharactersProps = {
-  characters: Character[];
+  characters: Character[]
 }
 
 export type FetchCharactersRequestAction = {
@@ -47,10 +47,6 @@ export type FetchCharactersFailureAction = {
   type: typeof FETCH_CHARACTERS_FAILURE
   payload: string
 }
-export type SetCharactersAction = {
-  type: typeof SET_CHARACTERS
-  payload: Character[]
-}
 
 export type SetCurrentCharactersAction = {
   type: typeof SET_CURRENT_CHARACTERS
@@ -61,4 +57,3 @@ export type CharactersActionTypes =
   | FetchCharactersSuccessAction
   | FetchCharactersFailureAction
   | SetCurrentCharactersAction
-  | SetCharactersAction

@@ -1,13 +1,9 @@
-//import { Dispatch } from "redux"
 import { Character, CharactersActionTypes, FetchCharactersFailureAction, FetchCharactersRequestAction, FetchCharactersSuccessAction } from "../../types/characters"
 
 export const FETCH_CHARACTERS_REQUEST = 'FETCH_CHARACTERS_REQUEST'
 export const FETCH_CHARACTERS_SUCCESS = 'FETCH_CHARACTERS_SUCCESS'
 export const FETCH_CHARACTERS_FAILURE = 'FETCH_CHARACTERS_FAILURE'
 export const SET_CURRENT_CHARACTERS = 'SET_CURRENT_CHARACTERS'
-export const SET_CHARACTERS = 'SET_CHARACTERS'
-
-
 
 export const fetchCharactersRequest = (): FetchCharactersRequestAction => ({
   type: FETCH_CHARACTERS_REQUEST,
@@ -15,14 +11,14 @@ export const fetchCharactersRequest = (): FetchCharactersRequestAction => ({
 
 export const fetchCharactersSuccess = (
   characters: Character[]
-  ): FetchCharactersSuccessAction => ({
+): FetchCharactersSuccessAction => ({
   type: FETCH_CHARACTERS_SUCCESS,
   payload: characters,
 })
 
 export const fetchCharactersFailure = (
   error: string
-  ): FetchCharactersFailureAction => ({
+): FetchCharactersFailureAction => ({
   type: FETCH_CHARACTERS_FAILURE,
   payload: error,
 })
@@ -46,11 +42,6 @@ export const fetchCharacters = (id: string) => {
     }
   }
 }
-
-export const setCharacters = (characters: Character[]): CharactersActionTypes => ({
-  type: SET_CHARACTERS,
-  payload: characters,
-})
 
 export const setCurrentCharacters = (characters: Character[]): CharactersActionTypes => ({
   type: SET_CURRENT_CHARACTERS,

@@ -1,14 +1,14 @@
 import { useNavigate, useLocation, Link } from 'react-router-dom'
-import logo from '../assets/logo.png'
 import { ReactComponent as BackButton } from '../assets/back-button.svg'
+import logo from '../assets/logo.png'
 import styles from '../styles/components/TopBar.module.scss'
 
 function TopBar() {
-  const navigate = useNavigate();
-  const location = useLocation();
+  const navigate = useNavigate()
+  const location = useLocation()
 
   const handleBackClick = () => {
-    navigate(-1);
+    navigate(-1)
   }
 
   return (

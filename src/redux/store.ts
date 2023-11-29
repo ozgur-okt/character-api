@@ -7,7 +7,6 @@ const rootReducer = combineReducers({
   locations: locationsReducer,
   characters: charactersReducer,
   favorites: favoritesReducer,
-  // Add other reducers here
 })
 
 const store = configureStore({

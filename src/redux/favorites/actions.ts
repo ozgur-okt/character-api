@@ -1,5 +1,8 @@
 import { Character } from '../../types/characters'
-import { ADD_TO_FAVORITES, REMOVE_FROM_FAVORITES, FavoritesActionTypes } from '../../types/favorites'
+import { FavoritesActionTypes } from '../../types/favorites'
+
+export const ADD_TO_FAVORITES = 'ADD_TO_FAVORITES'
+export const REMOVE_FROM_FAVORITES = 'REMOVE_FROM_FAVORITES'
 
 export const addToFavorites = (character: Character): FavoritesActionTypes => {
   return {

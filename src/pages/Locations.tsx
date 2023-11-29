@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../redux/store'
 import { Location } from '../types/locations'
+import { fetchLocations } from '../redux/locations/actions'
+import { AnyAction } from 'redux'
+import { ThunkDispatch } from '@reduxjs/toolkit'
 import Pagination from '../components/Pagination'
 import LocationCard from '../components/LocationCard' 
 import styles from '../styles/pages/Locations.module.scss'
-import { fetchLocations } from '../redux/locations/actions';
-import { AnyAction } from 'redux';
-import { ThunkDispatch } from '@reduxjs/toolkit';
 
 const Locations: React.FC = () => {
   const dispatch: ThunkDispatch<any, any, AnyAction> = useDispatch()
@@ -22,7 +22,7 @@ const Locations: React.FC = () => {
   const locationsPerPage = 3
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div>Loading...</div>
   }
 
   return (

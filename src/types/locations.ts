@@ -18,7 +18,7 @@ export type LocationsState = {
 }
 
 export type LocationCardProps = {
-  location: Location;
+  location: Location
 }
 
 export type FetchLocationsRequestAction = {
