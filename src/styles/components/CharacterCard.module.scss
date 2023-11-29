@@ -1,13 +1,11 @@
 .card {
   position: relative;
   border-radius: 3px;
-  //border: 1px solid gray;
   width: 28vw;
-  height: 30rem;
+  height: auto;
   //min-height: 38rem;
   text-decoration: none;
-  //background-color: gray;
-  //box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
   transition: all 0.3s ease-in-out;
 
   &:hover {
