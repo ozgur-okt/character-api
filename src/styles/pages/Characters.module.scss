@@ -90,8 +90,8 @@
     .characters {
       display: flex;
       height: min-content;
-      //gap: 3rem;
-      justify-content: space-between;
+      column-gap: 6rem;
+      //justify-content: flex-start;
     }
   }
 }

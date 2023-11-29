@@ -10,29 +10,8 @@ import OtherCharacters from '../components/OtherCharacters';
 const CharacterDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const characters = useSelector((state: RootState) => state.characters.characters);
-  //const character = characters.find((character: Character) => character.id === Number(id));
-  const character = {
-    "id": 45,
-    "name": "Bill",
-    "status": "Alive",
-    "species": "Human",
-    "type": "",
-    "gender": "Male",
-    "origin": {
-      "name": "Earth (C-137)",
-      "url": "https://rickandmortyapi.com/api/location/1"
-    },
-    "location": {
-      "name": "Earth (C-137)",
-      "url": "https://rickandmortyapi.com/api/location/1"
-    },
-    "image": "https://rickandmortyapi.com/api/character/avatar/45.jpeg",
-    "episode": [
-      "https://rickandmortyapi.com/api/episode/3"
-    ],
-    "url": "https://rickandmortyapi.com/api/character/45",
-    "created": "2017-11-05T10:22:27.446Z"
-  }
+  const character = characters.find((character: Character) => character.id === Number(id));
+  
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -46,8 +25,12 @@ const CharacterDetails: React.FC = () => {
     return <div>Loading...</div>;
   }
 
-  //const otherCharacters = characters.filter((character: Character) => character.id !== Number(id)).slice(0, 2);
-  const otherCharacters = [character, character]
+  const otherCharacters = characters.filter((otherCharacter: Character) => 
+    otherCharacter.id !== Number(id) &&
+    otherCharacter.location.name === character?.location.name &&
+    otherCharacter.status === character?.status
+  ).slice(0, 2);
+  
   return (
     <div className={styles.container}>
       {character && (
