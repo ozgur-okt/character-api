@@ -1,4 +1,9 @@
-import { FETCH_CHARACTERS_FAILURE, FETCH_CHARACTERS_REQUEST, FETCH_CHARACTERS_SUCCESS, SET_CURRENT_CHARACTERS } from "../redux/characters/actions"
+import { 
+  FETCH_CHARACTERS_FAILURE, 
+  FETCH_CHARACTERS_REQUEST, 
+  FETCH_CHARACTERS_SUCCESS, 
+  SET_CURRENT_CHARACTERS 
+} from "../redux/characters/actions"
 
 export type Character = {
   id: number

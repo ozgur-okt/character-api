@@ -1,4 +1,9 @@
-import { FETCH_LOCATIONS_FAILURE, FETCH_LOCATIONS_REQUEST, FETCH_LOCATIONS_SUCCESS, SET_CURRENT_LOCATIONS } from "../redux/locations/actions"
+import { 
+  FETCH_LOCATIONS_FAILURE, 
+  FETCH_LOCATIONS_REQUEST, 
+  FETCH_LOCATIONS_SUCCESS, 
+  SET_CURRENT_LOCATIONS 
+} from "../redux/locations/actions"
 
 export type Location = {
   id: number

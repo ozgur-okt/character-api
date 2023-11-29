@@ -1,5 +1,11 @@
 import { Dispatch } from "redux"
-import { FetchLocationsFailureAction, FetchLocationsRequestAction, FetchLocationsSuccessAction, Location, LocationsActionTypes } from "../../types/locations"
+import {
+  FetchLocationsFailureAction,
+  FetchLocationsRequestAction,
+  FetchLocationsSuccessAction,
+  Location,
+  LocationsActionTypes
+} from "../../types/locations"
 
 export const FETCH_LOCATIONS_REQUEST = 'FETCH_LOCATIONS_REQUEST'
 export const FETCH_LOCATIONS_SUCCESS = 'FETCH_LOCATIONS_SUCCESS'

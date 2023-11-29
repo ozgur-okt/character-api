@@ -1,5 +1,10 @@
 import { CharactersState } from "../../types/characters"
-import { FETCH_CHARACTERS_FAILURE, FETCH_CHARACTERS_REQUEST, FETCH_CHARACTERS_SUCCESS, SET_CURRENT_CHARACTERS } from "./actions"
+import { 
+  FETCH_CHARACTERS_FAILURE, 
+  FETCH_CHARACTERS_REQUEST, 
+  FETCH_CHARACTERS_SUCCESS, 
+  SET_CURRENT_CHARACTERS 
+} from "./actions"
 
 const initialState: CharactersState = {
   loading: false,

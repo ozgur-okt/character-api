@@ -1,6 +1,11 @@
 
 import { LocationsActionTypes, LocationsState } from "../../types/locations"
-import { FETCH_LOCATIONS_FAILURE, FETCH_LOCATIONS_REQUEST, FETCH_LOCATIONS_SUCCESS, SET_CURRENT_LOCATIONS } from "./actions"
+import { 
+  FETCH_LOCATIONS_FAILURE, 
+  FETCH_LOCATIONS_REQUEST, 
+  FETCH_LOCATIONS_SUCCESS, 
+  SET_CURRENT_LOCATIONS 
+} from "./actions"
 
 const initialState: LocationsState = {
   loading: false,

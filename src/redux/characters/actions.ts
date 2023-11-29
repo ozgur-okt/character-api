@@ -1,4 +1,11 @@
-import { Character, CharactersActionTypes, FetchCharactersFailureAction, FetchCharactersRequestAction, FetchCharactersSuccessAction } from "../../types/characters"
+import { Dispatch } from "redux"
+import { 
+  Character, 
+  CharactersActionTypes, 
+  FetchCharactersFailureAction, 
+  FetchCharactersRequestAction, 
+  FetchCharactersSuccessAction 
+} from "../../types/characters"
 
 export const FETCH_CHARACTERS_REQUEST = 'FETCH_CHARACTERS_REQUEST'
 export const FETCH_CHARACTERS_SUCCESS = 'FETCH_CHARACTERS_SUCCESS'
@@ -24,7 +31,7 @@ export const fetchCharactersFailure = (
 })
 
 export const fetchCharacters = (id: string) => {
-  return async (dispatch: any) => {
+  return async (dispatch: Dispatch) => {
     try {
       dispatch(fetchCharactersRequest())
       const response = await fetch(`https://rickandmortyapi.com/api/location/${id}`)
@@ -36,9 +43,9 @@ export const fetchCharacters = (id: string) => {
         characterResponses.map((response: Response) => response.json())
       )
       console.log("actions", characters)
-      dispatch({ type: FETCH_CHARACTERS_SUCCESS, payload: characters })
+      dispatch(fetchCharactersSuccess(characters))
     } catch (error: any) {
-      dispatch({ type: FETCH_CHARACTERS_FAILURE, payload: error.toString() })
+      dispatch(fetchCharactersFailure(error.toString()))
     }
   }
 }
