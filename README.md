@@ -1,46 +1,63 @@
-# Getting Started with Create React App
+# Cartoon Characters App
+## Overview
+This is a React app with TypeScript that allows users to explore cartoon characters from a public API. The app includes features such as listing characters based on locations, displaying character details, managing favorites, and responsive design. It utilizes Redux for state management, Sass for styling, React Router for navigation, and Axios for fetching data.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Features
 
-## Available Scripts
+* List of Cartoon Characters
+The app fetches cartoon characters from a public API and displays them in a user-friendly interface.
 
-In the project directory, you can run:
+* Four Pages
+Locations Page: Displays a list of available locations.
+Characters of Location Page: Shows characters based on the selected location.
+Character Details Page: Provides detailed information about a specific character.
+Favorites Page: Allows users to view and manage their favorite characters.
+* Favorite Management
+Users can add characters to their favorites or remove them, and the Favorites page displays the list of their saved favorites.
 
-### `npm start`
+* Redux State Management
+Redux is employed for efficient state management throughout the application.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* Responsive Design
+The app is designed to be responsive, adapting to different screen sizes with a maximum width of 768px.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+* Styling with Sass
+Sass is used to enhance the styling of the app, making it modular and maintainable.
 
-### `npm test`
+* React Router Navigation
+React Router is implemented to enable seamless navigation between different pages of the app.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Data Fetching with Axios
+Axios is used to fetch data from the public API, ensuring a smooth user experience.
 
-### `npm run build`
+* Core Web Vitals (CLS Scores)
+The app has Core Web Vitals reports in the cls folder at the root. These reports are generated using the Lighthouse extension of Google.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Getting Started
+Clone the repository.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+`git clone https://github.com/ozgur-okt/character-api`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`cd character-api`
 
-### `npm run eject`
+### Running the App on Local Host
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Install dependencies with `npm install`.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Run the app locally with `npm start`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Access it on [http://localhost:3000](http://localhost:3000).
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Running the App on Container
 
-## Learn More
+Alternatively, the app is containerized with Docker. 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Run `docker-compose up` to start the app. 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Accessible on [http://localhost:5000](http://localhost:5000).
+
+## Contributing
+Feel free to contribute to the project by submitting bug reports, feature requests, or pull requests. Your feedback and contributions are highly appreciated.
+
+## License
+This project is licensed under the MIT License.
