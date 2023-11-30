@@ -52,7 +52,7 @@ const CharacterCard: React.FC<CharacterProps> = ({ character }) => {
       <div className={styles.info}>
         <div>
           <h2>{character.name}</h2>
-          <span className={styles[`status${character.status}`]}>{character.status}</span>
+          <span className={styles[`status${character.status}`]}>{character.status.charAt(0).toUpperCase() + character.status.slice(1)}</span>
           <span> - </span>
           <span>{character.species}</span>
         </div>
