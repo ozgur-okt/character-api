@@ -3,7 +3,7 @@ import { Character, OtherCharactersProps } from '../types/characters'
 import styles from '../styles/components/OtherCharacters.module.scss'
 
 const OtherCharacter: React.FC<{ character: Character }> = ({ character }) => (
-  <Link key={character.id} to={`/characters/${character.id}`} className={styles.character}>
+  <Link key={character.id} to={`/characters/${character.id}`} className={styles.character} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
     <img src={character.image} alt={character.name} className={styles.characterImage} />
     <div className={styles.info}>
       <h2>{character.name}</h2>
