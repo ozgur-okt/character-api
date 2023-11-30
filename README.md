@@ -2,6 +2,8 @@
 ## Overview
 This is a React app with TypeScript that allows users to explore cartoon characters from a public API. The app includes features such as listing characters based on locations, displaying character details, managing favorites, and responsive design. It utilizes Redux for state management, Sass for styling, React Router for navigation, and Axios for fetching data.
 
+Here you can use the app: https://character-api.vercel.app/
+
 ## Features
 
 * List of Cartoon Characters
